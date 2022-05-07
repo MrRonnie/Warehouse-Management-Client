@@ -1,9 +1,10 @@
 import React from "react";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
   return (
-    <div style={{ minHeight: "100vh" }} className="container">
-      <h2>This is Home</h2>
+    <div style={{ minHeight: "100vh" }} className="mx-2">
+      <Banner></Banner>
     </div>
   );
 };
