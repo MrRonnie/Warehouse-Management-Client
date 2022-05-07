@@ -1,0 +1,11 @@
+.sub-bg-success {
+    background-color: #fbe68a;
+  }
+  
+  .sub-btn-buy-now {
+    color: white;
+    background-image: linear-gradient(to bottom, #ffa058 0%, #ff7513 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 9px 25px;
+  }
