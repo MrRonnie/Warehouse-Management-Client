@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Item from "../Item/Item";
 import "./Items.css";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Items = () => {
   const [items, setItems] = useState([]);
@@ -23,9 +25,13 @@ const Items = () => {
           ))}
         </div>
       </div>
-      <div className="w-100 mx-auto text-end mt-3 mb-5">
-        <Button className=" fs-5  mb-3" variant="outline-primary link">
+      <div className="w-100 mx-auto text-end mt-4 mb-5">
+        <Button className=" fs-5  mb-3 text-decoration-none " variant="link">
           Manage Inventories
+          <FontAwesomeIcon
+            className="mx-2 px-2 text-primary"
+            icon={faArrowRight}
+          />
         </Button>
       </div>
     </div>

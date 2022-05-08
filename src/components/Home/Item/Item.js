@@ -1,9 +1,15 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import "./Item.css";
 
 const Item = ({ item }) => {
   const { id, name, img, description, price, quantity, supplier, stock } = item;
+  const navigate = useNavigate();
+
+  const navigateToItemDetail = (id) => {
+    navigate(`/item/${id}`);
+  };
 
   return (
     <Card className="item-card text-center shadow rounded  mt-3 mx-auto ">
@@ -23,7 +29,12 @@ const Item = ({ item }) => {
           <br />
           <small>Quantity: {quantity}</small>
         </p>
-        <Button className="btn btn-warning w-75 mx-auto mb-3">Update</Button>
+        <Button
+          onClick={() => navigateToItemDetail(id)}
+          className="btn btn-warning w-75 mx-auto mb-3"
+        >
+          Update
+        </Button>
       </Card>
     </Card>
   );
