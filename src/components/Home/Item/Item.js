@@ -6,7 +6,7 @@ const Item = ({ item }) => {
   const { id, name, img, description, price, quantity, supplier, stock } = item;
 
   return (
-    <Card className="item-card text-center shadow rounded  mt-3 mx-auto">
+    <Card className="item-card text-center shadow rounded  mt-3 mx-auto ">
       <Card>
         <img className="w-100" src={img} alt="" />
         <h6>Id: {id}</h6>
@@ -23,10 +23,7 @@ const Item = ({ item }) => {
           <br />
           <small>Quantity: {quantity}</small>
         </p>
-        <Button className="btn btn-warning w-75 mx-auto mb-2">Update</Button>
-        <Button className="btn btn-success w-75 mx-auto mb-3">
-          Manage Inventories
-        </Button>
+        <Button className="btn btn-warning w-75 mx-auto mb-3">Update</Button>
       </Card>
     </Card>
   );

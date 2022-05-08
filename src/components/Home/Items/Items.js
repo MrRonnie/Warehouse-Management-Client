@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import Item from "../Item/Item";
 import "./Items.css";
 
@@ -21,6 +22,11 @@ const Items = () => {
             <Item key={item.id} item={item}></Item>
           ))}
         </div>
+      </div>
+      <div className="w-100 mx-auto text-end mt-3 mb-5">
+        <Button className=" fs-5  mb-3" variant="outline-primary link">
+          Manage Inventories
+        </Button>
       </div>
     </div>
   );
