@@ -16,7 +16,7 @@ const NotFound = () => {
         services <span className="text-danger">404!!</span>
       </h2>
       <h3 className="text-warning fs-2 text-center mt-5">
-        <span className="text-success">Monkey</span> Love Banana
+        <span className="text-success">Monkey</span> Love's Banana
       </h3>
     </div>
   );
