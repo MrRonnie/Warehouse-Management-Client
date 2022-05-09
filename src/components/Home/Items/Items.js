@@ -9,7 +9,7 @@ const Items = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("items.json")
+    fetch("http://localhost:5000/item")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
@@ -21,11 +21,11 @@ const Items = () => {
         </h1>
         <div className="items-container">
           {items.slice(0, 6).map((item) => (
-            <Item key={item.id} item={item}></Item>
+            <Item key={item._id} item={item}></Item>
           ))}
         </div>
       </div>
-      <div className="w-100 mx-auto text-end mt-4 mb-5">
+      <div className="w-100 text-end mt-4 mb-5">
         <Button className=" fs-5  mb-3 text-decoration-none " variant="link">
           Manage Inventories
           <FontAwesomeIcon
