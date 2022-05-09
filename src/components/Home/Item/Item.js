@@ -15,13 +15,12 @@ const Item = ({ item }) => {
     <Card className="item-card text-center shadow rounded  mt-3 mx-auto ">
       <Card>
         <img className="w-100" src={img} alt="" />
-        <h6>Id: {id}</h6>
-        <Card.Title className="fs-6 fw-bold">Name: {name}</Card.Title>
-        <Card.Text className="text-primary fw-bold my-0">
+        <Card.Title className="fs-6 fw-bold">{name}</Card.Title>
+        <Card.Text className="text-primary fw-bold fs-4 my-0">
           Price: ${price}
         </Card.Text>
-        <p className="fw-bold">
-          <small>Description: {description}</small>
+        <p className="fw-bold mt-3 fs-5">
+          <small>{description}</small>
           <br />
           <small>Supplier: {supplier}</small>
           <br />
