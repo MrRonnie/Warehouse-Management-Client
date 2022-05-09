@@ -9,6 +9,8 @@ const ItemDetail = () => {
         Item Detail
       </h2>
       <h4> ID: {itemId}</h4>
+
+      <div></div>
     </div>
   );
 };

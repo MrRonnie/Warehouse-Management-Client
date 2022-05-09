@@ -7,6 +7,7 @@ import {
 import "./Register.css";
 import auth from "../../../firebase.init";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import Loading from "../../Shared/Loading/Loading";
 
 const Register = () => {
   const [agree, setAgree] = useState(false);
@@ -16,6 +17,10 @@ const Register = () => {
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   const navigate = useNavigate();
+
+  if (loading || updating) {
+    return <Loading></Loading>;
+  }
 
   const navigateLogin = () => {
     navigate("/login");
@@ -40,7 +45,7 @@ const Register = () => {
       style={{ minHeight: "80vh" }}
       className="register-form container w-50 mx-auto border mt-5 mb-5 shadow border-light"
     >
-      <h2 className="text-center text-primary mt-3 mb-3">Please Register</h2>
+      <h2 className="text-center text-warning  mt-3 mb-3">Please Register</h2>
       <form onSubmit={handleRegister}>
         <input type="text" name="name" id="" placeholder="Your Name" required />
 
@@ -76,7 +81,7 @@ const Register = () => {
 
         <input
           disabled={!agree}
-          className="btn btn-primary mt-3 shadow-lg w-50  mx-auto"
+          className="btn btn-warning mt-3 shadow-lg w-50  mx-auto"
           type="submit"
           value="Register"
         />

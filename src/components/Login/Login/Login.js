@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
@@ -7,6 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -23,6 +23,10 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
   const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+  if (loading || sending) {
+    return <Loading></Loading>;
+  }
 
   if (user) {
     navigate(from, { replace: true });
@@ -59,7 +63,7 @@ const Login = () => {
       style={{ minHeight: "80vh" }}
       className="container w-50 mx-auto border mt-5 mb-5 shadow border-light"
     >
-      <h2 className="text-primary text-center mt-3 mb-3">Please Login</h2>
+      <h2 className="text-warning text-center mt-3 mb-3">Please Login</h2>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control
@@ -81,7 +85,7 @@ const Login = () => {
 
         <Button
           className="shadow-lg rounded mb-2 w-50 d-block mx-auto mb-3"
-          variant="primary"
+          variant="warning"
           onClick={handleSubmit}
           type="submit"
         >
