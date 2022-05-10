@@ -12,7 +12,7 @@ const SubscribeForm = () => {
         <p>Get updates on sales, specials and more </p>
         <input type="text" className="form-control" placeholder="Your Email" />
         <br />
-        <button type="button" class="sub-btn-buy-now fw-bold">
+        <button type="button" className="sub-btn-buy-now fw-bold">
           Subscribe
         </button>
       </div>
