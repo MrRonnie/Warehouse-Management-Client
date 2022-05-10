@@ -4,7 +4,7 @@ import "./SubscribeForm.css";
 const SubscribeForm = () => {
   return (
     <div
-      class="container sub-bg-success p-5 text-dark bg-opacity-25 rounded d-flex justify-content-center align-items-center mb-5"
+      className="container sub-bg-success p-5 text-dark bg-opacity-25 rounded d-flex justify-content-center align-items-center mb-5"
       id="Subscribe"
     >
       <div>

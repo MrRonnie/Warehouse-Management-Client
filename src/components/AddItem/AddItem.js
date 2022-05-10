@@ -5,6 +5,18 @@ const AddItem = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    const url = `http://localhost:5000/item`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
   };
 
   return (
@@ -33,6 +45,7 @@ const AddItem = () => {
           className="mb-3"
           placeholder="Supplier"
           type="text"
+          required
           {...register("supplier")}
         />
         <textarea
@@ -45,18 +58,21 @@ const AddItem = () => {
           className="mb-3"
           placeholder="$"
           type="number"
+          required
           {...register("price")}
         />
         <input
           className="mb-3"
           placeholder="Quantity"
           type="number"
+          required
           {...register("quantity")}
         />
         <input
           className="mb-3"
           placeholder="Photo URL"
           type="text"
+          required
           {...register("img")}
         />
         <input
