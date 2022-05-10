@@ -1,10 +1,18 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const ItemDetail = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState({});
+  const location = useLocation().pathname.split("/")[2];
+
+  const handleDeliver = () => {
+    axios
+      .put(`http://localhost:5000/item/delivered/${location}`)
+      .then((data) => console.log(data.data));
+  };
 
   useEffect(() => {
     const url = `http://localhost:5000/item/${itemId}`;
@@ -12,7 +20,7 @@ const ItemDetail = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, []);
+  }, [handleDeliver]);
 
   return (
     <div>
@@ -32,7 +40,7 @@ const ItemDetail = () => {
             <small>Quantity: {item.quantity}</small>
           </p>
           <Button
-            // onClick={() => navigateToItemDetail(_id)}
+            onClick={handleDeliver}
             className="btn btn-warning align-bottom justify-end  w-50 mx-auto mb-5"
           >
             Delivered
