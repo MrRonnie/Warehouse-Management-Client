@@ -27,7 +27,7 @@ const ManageInventory = () => {
   }
 
   return (
-    <div className="container">
+    <div style={{ minHeight: "80vh" }} className="container">
       <div className="d-flex justify-content-between">
         <div>
           <h3 className="mt-3">

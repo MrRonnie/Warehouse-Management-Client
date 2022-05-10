@@ -1,21 +1,34 @@
+import axios from "axios";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import auth from "../../firebase.init";
 
 const AddItem = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    const url = `http://localhost:5000/item`;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
+  const [user] = useAuthState(auth);
+  const { register } = useForm();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const item = {
+      email: user.email,
+      name: e.target.name.value,
+      supplier: e.target.supplier.value,
+      description: e.target.description.value,
+      price: parseInt(e.target.price.value),
+      quantity: parseInt(e.target.quantity.value),
+      img: e.target.img.value,
+    };
+
+    axios
+      .post("http://localhost:5000/item", item)
+
+      .then((res) => {
+        const { data } = res;
+        if (data) {
+          toast("Your Item has added");
+          e.target.reset();
+        }
       });
   };
 
@@ -27,9 +40,10 @@ const AddItem = () => {
       <h2 className="text-center text-warning mt-4 mb-3">
         Add Item Information
       </h2>
-      <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
+      <form className="d-flex flex-column" onSubmit={handleSubmit}>
         <input
           className="mb-3 mt-2"
+          id="name"
           placeholder="Item Title"
           type="text"
           required
@@ -37,12 +51,15 @@ const AddItem = () => {
         />
         <input
           className="mb-3"
+          id="email"
           placeholder="Email"
+          value={user.email}
           disabled
           {...register("email")}
         />
         <input
           className="mb-3"
+          id="supplier"
           placeholder="Supplier"
           type="text"
           required
@@ -50,6 +67,7 @@ const AddItem = () => {
         />
         <textarea
           className="mb-3"
+          id="description"
           placeholder="Description"
           {...register("description")}
         />
@@ -57,6 +75,7 @@ const AddItem = () => {
         <input
           className="mb-3"
           placeholder="$"
+          id="number"
           type="number"
           required
           {...register("price")}
@@ -64,12 +83,14 @@ const AddItem = () => {
         <input
           className="mb-3"
           placeholder="Quantity"
+          id="quantity"
           type="number"
           required
           {...register("quantity")}
         />
         <input
           className="mb-3"
+          id="img"
           placeholder="Photo URL"
           type="text"
           required
@@ -81,6 +102,7 @@ const AddItem = () => {
           value="Add Item"
         />
       </form>
+      <ToastContainer />
     </div>
   );
 };

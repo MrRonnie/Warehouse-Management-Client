@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Item from "../Item/Item";
 import "./Items.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Items = () => {
   const [items, setItems] = useState([]);
@@ -27,13 +28,16 @@ const Items = () => {
         </div>
       </div>
       <div className="w-100 text-end mt-4 mb-5">
-        <Button className=" fs-5  mb-3 text-decoration-none " variant="link">
-          Manage Inventories
+        <Link
+          to="/manageinventory"
+          className="fs-5  mb-3 text-decoration-none "
+        >
+          Manage Inventory
           <FontAwesomeIcon
             className="mx-2 px-2 text-primary"
             icon={faArrowRight}
           />
-        </Button>
+        </Link>
       </div>
     </div>
   );
