@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
-import { useLocation, useParams } from "react-router-dom";
+import { Button, Card, FormControl, InputGroup } from "react-bootstrap";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 const ItemDetail = () => {
-  const { itemId } = useParams();
   const [item, setItem] = useState({});
   const location = useLocation().pathname.split("/")[2];
 
@@ -14,13 +13,22 @@ const ItemDetail = () => {
       .then((data) => console.log(data.data));
   };
 
-  useEffect(() => {
-    const url = `http://localhost:5000/item/${itemId}`;
+  const handleRestock = (e) => {
+    e.preventDefault();
+    let restockQuantity = e.target.restock.value;
+    axios
+      .put(
+        `http://localhost:5000/item/restock/${location}?restock=${restockQuantity}`
+      )
+      .then((data) => console.log(data.data));
+    e.target.reset();
+  };
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setItem(data));
-  }, [handleDeliver]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/item/${location}`)
+      .then((res) => setItem(res.data));
+  }, [handleDeliver, handleRestock]);
 
   return (
     <div>
@@ -39,12 +47,40 @@ const ItemDetail = () => {
             <br />
             <small>Quantity: {item.quantity}</small>
           </p>
+          {parseInt(item.quantity) < 1 && (
+            <div className="bg-danger text-white w-25 mx-auto mt-5 mb-5 ">
+              Sold Out
+            </div>
+          )}
           <Button
             onClick={handleDeliver}
-            className="btn btn-warning align-bottom justify-end  w-50 mx-auto mb-5"
+            className="btn btn-warning text-white  align-bottom justify-end  w-50 mx-auto mb-5"
           >
             Delivered
           </Button>
+          <form
+            className="d-flex aline-items-center justify-content-center gap-4 mb-4"
+            onSubmit={handleRestock}
+          >
+            <input
+              type="number"
+              placeholder="Add Number"
+              className="border-1 border-primary px-5 py-2 rounded"
+              name="restock"
+            ></input>
+            <button
+              className="btn btn-primary text-white px-6 py-3 mt-6 rounded"
+              type="submit"
+            >
+              Restock
+            </button>
+          </form>
+          <Link
+            to="/manageinventory"
+            className="btn btn-dark w-50 mx-auto text-white fs-5 mt-4 mb-3 "
+          >
+            Manage Inventory
+          </Link>
         </Card>
       </Card>
     </div>
