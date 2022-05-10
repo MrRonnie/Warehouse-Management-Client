@@ -13,6 +13,7 @@ const Items = () => {
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);
+
   return (
     <div id="items" className="container mt-5">
       <div className="row">
