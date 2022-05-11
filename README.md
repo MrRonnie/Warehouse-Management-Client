@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Warehouse - A warehouse management website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A warehouse management website is a website that provides inventory analysis, restock, supply analysis or a combination of all these with proper documentation.
 
-## Available Scripts
+### Live client site link:
 
-In the project directory, you can run:
+### Live server site link:
 
-### `npm start`
+### GitHub issue link:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://github.com/programming-hero-web-course-4/independent-service-provider-MrRonnie/issues/1
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+This website has some pages. Some pages are public and some are protected,which means user needs to be logged in to access those features.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Pages            | Details                                                 |
+| ---------------- | ------------------------------------------------------- |
+| Home             | main landing page includes slider,featured offers etc.. |
+| All items        | shows all the available items in stock                  |
+| Manage Inventory | let user to restock/supply products                     |
+| Add New Item     | let user to add new item to the website as an Admin     |
+| My Items         | let user check/cancel items                             |
+| Blog Post        | Blog area of the warehouse/inventory                    |
+| Login/Register   | Login and Registration pages                            |
 
-### `npm run build`
+### Project Details
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To build this project we used React,which is a JavaScript Library and bootstrap for styling. We also implemented react router here so the pages of the site loads faster than the regular websites.We used firebase authentication system and private route.For backend used node js and express as a framework.
+And lastly for storing data we used mongodb which is a NoSql database management.
