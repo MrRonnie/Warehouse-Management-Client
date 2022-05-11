@@ -6,7 +6,11 @@ A warehouse management website is a website that provides inventory analysis, re
 
 ### Live client site link:
 
+https://gadget-warehouse-management.web.app/
+
 ### Live server site link:
+
+https://secure-wildwood-79541.herokuapp.com/
 
 ### GitHub issue link:
 

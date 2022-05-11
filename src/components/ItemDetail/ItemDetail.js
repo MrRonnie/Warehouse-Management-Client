@@ -9,7 +9,9 @@ const ItemDetail = () => {
 
   const handleDeliver = () => {
     axios
-      .put(`http://localhost:5000/item/delivered/${location}`)
+      .put(
+        `https://secure-wildwood-79541.herokuapp.com/item/delivered/${location}`
+      )
       .then((data) => console.log(data.data));
   };
 
@@ -18,7 +20,7 @@ const ItemDetail = () => {
     let restockQuantity = e.target.restock.value;
     axios
       .put(
-        `http://localhost:5000/item/restock/${location}?restock=${restockQuantity}`
+        `https://secure-wildwood-79541.herokuapp.com/item/restock/${location}?restock=${restockQuantity}`
       )
       .then((data) => console.log(data.data));
     e.target.reset();
@@ -26,7 +28,7 @@ const ItemDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/item/${location}`)
+      .get(`https://secure-wildwood-79541.herokuapp.com/item/${location}`)
       .then((res) => setItem(res.data));
   }, [handleDeliver, handleRestock]);
 

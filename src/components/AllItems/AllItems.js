@@ -8,10 +8,12 @@ const AllItems = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/item").then((res) => {
-      setItems(res.data);
-      setLoading(false);
-    });
+    axios
+      .get("https://secure-wildwood-79541.herokuapp.com/item")
+      .then((res) => {
+        setItems(res.data);
+        setLoading(false);
+      });
   });
   if (loading) {
     return <Loading />;

@@ -12,15 +12,17 @@ const ManageInventory = () => {
     const proceed = window.confirm("Are you sure?");
     if (proceed)
       axios
-        .delete(`http://localhost:5000/item/${id}`)
+        .delete(`https://secure-wildwood-79541.herokuapp.com/item/${id}`)
         .then((res) => console.log(res));
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/item").then((res) => {
-      setItems(res.data);
-      setLoading(false);
-    });
+    axios
+      .get("https://secure-wildwood-79541.herokuapp.com/item")
+      .then((res) => {
+        setItems(res.data);
+        setLoading(false);
+      });
   }, [handleDelete]);
   if (loading) {
     return <Loading />;

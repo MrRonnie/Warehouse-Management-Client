@@ -21,7 +21,7 @@ const AddItem = () => {
     };
 
     axios
-      .post("http://localhost:5000/item", item)
+      .post("https://secure-wildwood-79541.herokuapp.com/item", item)
 
       .then((res) => {
         const { data } = res;
