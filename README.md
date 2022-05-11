@@ -1,6 +1,8 @@
-# Warehouse - A warehouse management website
+# A Warehouse Management website
 
-A warehouse management website is a website that provides inventory analysis, restock, supply analysis or a combination of all these with proper documentation.
+## Gadget Monkey
+
+A warehouse management website is a website that provides inventory analysis, restock, supply analysis or a combination of all these.
 
 ### Live client site link:
 
@@ -12,7 +14,7 @@ https://github.com/programming-hero-web-course-4/independent-service-provider-Mr
 
 ## Features
 
-This website has some pages. Some pages are public and some are protected,which means user needs to be logged in to access those features.
+This website has some pages. Some pages are public and some are protected with private routes, which means user needs to be logged in to access those features and need a valid account.
 
 | Pages            | Details                                                 |
 | ---------------- | ------------------------------------------------------- |
